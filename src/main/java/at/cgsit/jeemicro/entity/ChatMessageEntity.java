@@ -1,6 +1,7 @@
 package at.cgsit.jeemicro.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 /**

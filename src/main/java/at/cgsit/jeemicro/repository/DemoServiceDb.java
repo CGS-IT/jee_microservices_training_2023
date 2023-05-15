@@ -3,12 +3,10 @@ package at.cgsit.jeemicro.repository;
 
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
 
 @ApplicationScoped

@@ -5,12 +5,12 @@ import io.quarkus.runtime.StartupEvent;
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
 import at.cgsit.jeemicro.repository.DemoServiceDb;
 
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import javax.annotation.Priority;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import jakarta.annotation.Priority;
 import java.time.LocalDateTime;
 import java.util.Random;
 
