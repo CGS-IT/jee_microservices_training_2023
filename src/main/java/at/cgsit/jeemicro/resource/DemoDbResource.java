@@ -1,6 +1,6 @@
 package at.cgsit.jeemicro.resource;
 
-import at.cgsit.jeemicro.repository.DemoServiceDb;
+import at.cgsit.jeemicro.repository.ChatMessageRepository;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -16,7 +16,7 @@ public class DemoDbResource {
     Logger LOG;
 
     @Inject
-    DemoServiceDb service;
+    ChatMessageRepository service;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

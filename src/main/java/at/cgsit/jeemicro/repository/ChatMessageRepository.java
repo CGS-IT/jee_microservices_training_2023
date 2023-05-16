@@ -10,10 +10,17 @@ import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
 
 @ApplicationScoped
-public class DemoServiceDb {
+public class ChatMessageRepository {
 
     @Inject
     EntityManager em;
+
+    public ChatMessageEntity readChatMessage(Long id) {
+        // direkte Verwendung der find methode des Entity Managers für eine ID
+        ChatMessageEntity chatMessageEntity = em.find(ChatMessageEntity.class, id);
+        return chatMessageEntity;
+    }
+
 
     @Transactional
     public String createChatMessageDBAndReturnCount(String echoIn) {
