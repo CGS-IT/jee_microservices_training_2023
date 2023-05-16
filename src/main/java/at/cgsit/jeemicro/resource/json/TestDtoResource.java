@@ -62,7 +62,7 @@ public class TestDtoResource {
     public TestDTO updateTestMessage(
             @PathParam("id") String id,
             TestDTO input) {
-        log.infov("got object with {id} :object {0}", id, input.toString());
+        log.infov("updateTestMessage got object with {id} :object {0}", id, input.toString());
 
         return input;
     }
@@ -72,13 +72,14 @@ public class TestDtoResource {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
     public TestDTO createTestMessagePost(TestDTO input) {
-        log.infov("sendChatMessagePost got object : {0}", input.toString());
+        log.infov("createTestMessagePost : {0}", input.toString());
 
         return input;
     }
 
     @DELETE
     @Path("/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
     public String deleteTestDto(@PathParam("id") String id) {
         log.infov("got object with {id}", id);
 
