@@ -32,7 +32,9 @@ public class DemoDbResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/createCMWithName/{inputString}")
-    public String createCMWithName(@PathParam("inputString") String inputString) {
+    public String createCMWithName(
+            @PathParam("inputString") String inputString) {
+
         LOG.infov("log: {0}", inputString);
         return "Hello [" + service.createChatMessageDBAndReturnCount(inputString ) + "]";
     }
