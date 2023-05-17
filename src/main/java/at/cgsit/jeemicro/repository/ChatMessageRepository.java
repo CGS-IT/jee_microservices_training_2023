@@ -155,7 +155,7 @@ public class ChatMessageRepository {
 
         criteriaQuery.select( from );
 
-        Predicate like = cb.like(from.get("chatMessage"), likeStatement);
+        Predicate like = cb.like(from.get("chatRoom"), likeStatement);
         criteriaQuery.where( like );
 
         Order orderByCT = cb.desc(from.get("creationTime"));
@@ -163,6 +163,7 @@ public class ChatMessageRepository {
 
         Query query = em.createQuery(criteriaQuery);
         List<ChatMessageEntity> resultList = query.getResultList();
+
         return resultList;
     }
 

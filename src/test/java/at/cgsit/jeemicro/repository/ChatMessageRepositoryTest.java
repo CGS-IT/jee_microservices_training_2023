@@ -4,10 +4,7 @@ import at.cgsit.jeemicro.entity.ChatMessageEntity;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import org.jboss.logging.Logger;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -68,6 +65,23 @@ class ChatMessageRepositoryTest {
     @Order(1)
     void testFindByNamedQuery() {
         List<ChatMessageEntity> result = cmRepository.findByNamedQuery("room%");
+        assertNotNull(result);
+        assertEquals(10L, result.size());
+        log.info("cmresult " + result.size() );
+    }
+
+    /*
+    @Test
+    void testQueryLanguageOne() {
+
+        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
+            List<ChatMessageEntity> cmEntity = cmRepository.findChatMessagesWithLikeNameAndOrdedByDateWithQueryBuilder("room%");
+        });
+        Assertions.assertNotNull(thrown);
+    }
+     */
+    void testQueryLanguageOne() {
+        List<ChatMessageEntity> result = cmRepository.findChatMessagesWithLikeNameAndOrdedByDateWithQueryBuilder("room%");
         assertNotNull(result);
         assertEquals(10L, result.size());
         log.info("cmresult " + result.size() );
