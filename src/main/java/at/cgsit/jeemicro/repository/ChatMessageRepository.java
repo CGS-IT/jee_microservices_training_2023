@@ -3,23 +3,86 @@ package at.cgsit.jeemicro.repository;
 
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
 
+import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @ApplicationScoped
 public class ChatMessageRepository {
 
     @Inject
     EntityManager em;
-
+    
+        
     public ChatMessageEntity readChatMessage(Long id) {
         // direkte Verwendung der find methode des Entity Managers für eine ID
+        
         ChatMessageEntity chatMessageEntity = em.find(ChatMessageEntity.class, id);
+        
         return chatMessageEntity;
     }
+
+    public Long countChatMessags() {
+        Query query = em.createQuery("select count(e) from ChatMessageEntity e");
+        Long singleResult = (Long) query.getSingleResult();
+        return singleResult;
+    }
+
+    public Long countChatMessagsForRoom(String roomName) {
+
+        // like query
+        Query query = em.createQuery("select count(e) from ChatMessageEntity e WHERE e.chatRoom like :chatRoomLike ");
+
+        // :chatRoomLike wird durch den eigentlichen Wert ersetzt
+        // z.b. "%room1%");
+        query.setParameter("chatRoomLike", roomName);
+
+        // equals
+        // Query query2 = em.createQuery("select count(e) from ChatMessageEntity e WHERE e.chatRoom = :chatRoomLike ");
+        // query2.setParameter("chatRoomLike", roomName);
+
+
+        Long singleResult = (Long) query.getSingleResult();
+        return singleResult;
+    }
+
+
+    @Transactional
+    public List<ChatMessageEntity> findChatMessagesWithLikeNameAndOrdedByDate(String likeStatement) {
+
+        // suche alle chat messages and order by date descending
+
+        Query query = em.createQuery(
+                "SELECT e from ChatMessageEntity e " +
+                        "WHERE e.chatRoom like :chatMessageLike " +
+                        "ORDER by e.creationTime DESC" );
+
+        if( !StringUtil.isNullOrEmpty(likeStatement)) {
+            query.setParameter("chatMessageLike", likeStatement);
+        } else {
+            query.setParameter("chatMessageLike", "%");
+        }
+
+        List resultList = query.getResultList();
+        return resultList;
+    }
+
+    public List<ChatMessageEntity> findByNamedQuery(String likeStatement) {
+
+        Query query = em.createNamedQuery("ChatMessageEntity.findByLikeRoomName");
+        if( !StringUtil.isNullOrEmpty(likeStatement)) {
+            query.setParameter("cmRoomName", likeStatement);
+        } else {
+            query.setParameter("cmRoomName", "%");
+        }
+        List resultList = query.getResultList();
+        return resultList;
+    }
+
 
 
     @Transactional
@@ -33,10 +96,11 @@ public class ChatMessageRepository {
 
         em.persist(entity);
 
-        Query query = em.createQuery("select count(e) from ChatMessageEntity e");
-        Long singleResult = (Long) query.getSingleResult();
-        return "count is: " + singleResult.toString();
+        String result = countChatMessags().toString();
+
+        return "count is: " + result;
     }
+
 
 
     @Transactional(Transactional.TxType.REQUIRED)

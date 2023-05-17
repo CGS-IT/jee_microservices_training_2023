@@ -33,13 +33,16 @@ public class ChatMessageStartupInit {
 
         log.infov("server Startup Event {0}", evt);
 
-        ChatMessageEntity entity = new ChatMessageEntity();
-        entity.setChatMessage("echoIn" + new Random().nextLong());
-        entity.setChatRoom("room1");
-        entity.setUserName("username");
-        entity.setCreationTime(LocalDateTime.now());
+        for (Integer i = 1; i<=10; i++) {
 
-        repository.insertChatMessage(entity);
+            ChatMessageEntity entity = new ChatMessageEntity();
+            entity.setChatMessage("echoIn" + new Random().nextLong());
+            entity.setChatRoom("room " + i.toString());
+            entity.setUserName("username");
+            entity.setCreationTime(LocalDateTime.now());
+
+            repository.insertChatMessage(entity);
+        }
 
     }
 

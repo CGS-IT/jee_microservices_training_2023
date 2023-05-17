@@ -12,7 +12,10 @@ import java.time.LocalDateTime;
 @NamedQueries({
         @NamedQuery(
                 name = "ChatMessageEntity.countAll",
-                query = "SELECT count(e) from ChatMessageEntity e")
+                query = "SELECT count(e) from ChatMessageEntity e"),
+        @NamedQuery(
+                name = "ChatMessageEntity.findByLikeRoomName",
+                query = "SELECT e FROM ChatMessageEntity e WHERE e.chatRoom like :cmRoomName ORDER by e.creationTime DESC"),
 })
 public class ChatMessageEntity {
 
