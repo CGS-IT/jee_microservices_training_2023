@@ -2,6 +2,9 @@ package at.cgsit.jeemicro.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDateTime;
 
 /**
@@ -26,7 +29,7 @@ public class ChatMessageEntity {
     @Column(name="user_name", length= 100, nullable = false)
     private String userName;
 
-
+    @NotBlank(message="ChatRoom may not be blank")
     @Column(name="chat_room", length= 50, nullable = true)
     private String chatRoom;
 
@@ -38,6 +41,7 @@ public class ChatMessageEntity {
 
     private Boolean isImportant;
 
+    @AssertTrue(message = "this chat message is not allowed. because of user name")
     public boolean isChatMessageAllowed() {
         if("chris".equalsIgnoreCase(this.userName)) {
             return false;

@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -77,6 +79,38 @@ class ChatMessageRepositoryTest {
     void testFindChatMessagesperLike() {
         List<ChatMessageEntity> echoIn = cmRepository.findChatMessagesWithLikeNameAndOrdedByDate("echoIn");
         assertNotNull(echoIn);
+    }
+
+    @Test
+    void testDeleteWithoutLoading() {
+        cmRepository.deleteWithoutLoading( 1L);
+        ChatMessageEntity cmResult = cmRepository.readChatMessage(1L);
+        assertNull(cmResult);
+    }
+
+
+    @Test
+    void testInsertChatMessage() {
+        ChatMessageEntity entity = new ChatMessageEntity();
+        entity.setChatMessage("echoIn" + new Random().nextLong());
+        entity.setChatRoom("");
+        entity.setUserName("username");
+        entity.setCreationTime(LocalDateTime.now());
+
+        cmRepository.insertChatMessage(entity);
+        assertNotNull(entity);
+    }
+
+    @Test
+    void testInsertChatMessage2() {
+        ChatMessageEntity entity = new ChatMessageEntity();
+        entity.setChatMessage("echoIn" + new Random().nextLong());
+        entity.setChatRoom("");
+        entity.setUserName("chris");
+        entity.setCreationTime(LocalDateTime.now());
+
+        cmRepository.insertChatMessage(entity);
+        assertNotNull(entity);
     }
 
 
