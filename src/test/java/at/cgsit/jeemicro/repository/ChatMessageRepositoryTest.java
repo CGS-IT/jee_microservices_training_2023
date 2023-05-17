@@ -3,6 +3,7 @@ package at.cgsit.jeemicro.repository;
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.*;
 
@@ -105,15 +106,31 @@ class ChatMessageRepositoryTest {
 
     @Test
     void testInsertChatMessage() {
+
         ChatMessageEntity entity = new ChatMessageEntity();
         entity.setChatMessage("echoIn" + new Random().nextLong());
         entity.setChatRoom("");
         entity.setUserName("username");
+
         entity.setCreationTime(LocalDateTime.now());
 
         cmRepository.insertChatMessage(entity);
+
         assertNotNull(entity);
+
+        entity.setUserName("afterInsert");
     }
+
+
+
+    /*
+    @Transactional
+    public void updateUsername(ChatMessageEntity entity) {
+        cmRepository.reAttach(entity);
+        entity.setUserName("afterInsert");
+    }
+    */
+
 
     @Test
     void testInsertChatMessage2() {
@@ -124,7 +141,10 @@ class ChatMessageRepositoryTest {
         entity.setCreationTime(LocalDateTime.now());
 
         cmRepository.insertChatMessage(entity);
+
         assertNotNull(entity);
+
+
     }
 
 

@@ -17,7 +17,12 @@ public class ChatMessageRepository {
 
     @Inject
     EntityManager em;
-    
+
+    @Transactional
+    public void reAttach(ChatMessageEntity entity) {
+        em.merge(entity);
+    }
+
         
     public ChatMessageEntity readChatMessage(Long id) {
         // direkte Verwendung der find methode des Entity Managers für eine ID
