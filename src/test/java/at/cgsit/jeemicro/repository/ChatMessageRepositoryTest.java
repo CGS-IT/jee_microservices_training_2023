@@ -1,14 +1,19 @@
 package at.cgsit.jeemicro.repository;
 
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
+import io.quarkus.arc.ArcUndeclaredThrowableException;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
+import jakarta.transaction.RollbackException;
 import jakarta.transaction.Transactional;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,7 +63,7 @@ class ChatMessageRepositoryTest {
     void testCountMessagesForRoomAlListResult() {
         List<ChatMessageEntity> result = cmRepository.findChatMessagesWithLikeNameAndOrdedByDate("room%");
         assertNotNull(result);
-        assertEquals(10L, result.size());
+        assertEquals(11L, result.size());
         log.info("cmresult " + result.size() );
     }
 
@@ -71,16 +76,6 @@ class ChatMessageRepositoryTest {
         log.info("cmresult " + result.size() );
     }
 
-    /*
-    @Test
-    void testQueryLanguageOne() {
-
-        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
-            List<ChatMessageEntity> cmEntity = cmRepository.findChatMessagesWithLikeNameAndOrdedByDateWithQueryBuilder("room%");
-        });
-        Assertions.assertNotNull(thrown);
-    }
-     */
     void testQueryLanguageOne() {
         List<ChatMessageEntity> result = cmRepository.findChatMessagesWithLikeNameAndOrdedByDateWithQueryBuilder("room%");
         assertNotNull(result);
@@ -109,7 +104,7 @@ class ChatMessageRepositoryTest {
 
         ChatMessageEntity entity = new ChatMessageEntity();
         entity.setChatMessage("echoIn" + new Random().nextLong());
-        entity.setChatRoom("");
+        entity.setChatRoom("room ");
         entity.setUserName("username");
 
         entity.setCreationTime(LocalDateTime.now());
@@ -122,30 +117,53 @@ class ChatMessageRepositoryTest {
     }
 
 
-
-    /*
-    @Transactional
-    public void updateUsername(ChatMessageEntity entity) {
-        cmRepository.reAttach(entity);
-        entity.setUserName("afterInsert");
-    }
-    */
-
-
     @Test
     void testInsertChatMessage2() {
         ChatMessageEntity entity = new ChatMessageEntity();
         entity.setChatMessage("echoIn" + new Random().nextLong());
-        entity.setChatRoom("");
-        entity.setUserName("chris");
+        entity.setChatRoom(" df ");
+        entity.setUserName("Thris");
         entity.setCreationTime(LocalDateTime.now());
 
         cmRepository.insertChatMessage(entity);
 
         assertNotNull(entity);
+    }
+
+    @Test
+    void testInsertChatMessageFailWithUserName() {
+        ArcUndeclaredThrowableException
+                thrown = Assertions.assertThrows(ArcUndeclaredThrowableException.class, () -> {
+
+        ChatMessageEntity entity = new ChatMessageEntity();
+        entity.setChatMessage("echoIn" + new Random().nextLong());
+        entity.setChatRoom(" df ");
+        entity.setUserName("Chris");
+        entity.setCreationTime(LocalDateTime.now());
+
+        cmRepository.insertChatMessage(entity);
+
+        });
+        Assertions.assertNotNull(thrown);
+
+        ConstraintViolationException cv = (ConstraintViolationException) thrown.getCause().getCause();
+        Assertions.assertEquals(1L, cv.getConstraintViolations().size());
+
+        Optional<ConstraintViolation<?>> first = cv.getConstraintViolations().stream().findFirst();
+        first.ifPresentOrElse(
+                (c) -> {
+                    assertEquals("chatMessageAllowed", c.getPropertyPath().toString());
+                    assertEquals("this chat message is not allowed. because of user name", c.getMessage());
+                },
+                () -> {
+                    fail("No ConstraintViolation found");
+                }
+        );
 
 
     }
+
+
 
 
 
