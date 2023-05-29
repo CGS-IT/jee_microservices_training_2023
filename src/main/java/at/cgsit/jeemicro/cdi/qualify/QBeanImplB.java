@@ -17,6 +17,6 @@ public class QBeanImplB implements QBean, Serializable {
     @Override
     public String echo(String input) {
         log.info("QBeanImplB called");
-        return "dummy";
+        return "QBeanImplB called";
     }
 }
