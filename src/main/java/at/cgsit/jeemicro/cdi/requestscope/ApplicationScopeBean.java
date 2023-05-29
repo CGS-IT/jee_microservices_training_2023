@@ -12,5 +12,4 @@ public class ApplicationScopeBean {
         this.counter++;
         return counter;
     }
-
 }

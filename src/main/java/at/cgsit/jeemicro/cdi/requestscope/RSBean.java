@@ -29,5 +29,4 @@ public class RSBean {
     public void setRequestScopedMessage(String requestScopedMessage) {
         this.requestScopedMessage = requestScopedMessage;
     }
-
 }
