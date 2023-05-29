@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.resource;
+package at.cgsit.jeemicro.resource.asintro;
 
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;

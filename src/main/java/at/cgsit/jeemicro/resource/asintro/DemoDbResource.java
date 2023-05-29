@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.resource;
+package at.cgsit.jeemicro.resource.asintro;
 
 import at.cgsit.jeemicro.repository.ChatMessageRepository;
 import jakarta.inject.Inject;

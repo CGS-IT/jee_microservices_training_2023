@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.resource;
+package at.cgsit.jeemicro.resource.useothersrv;
 
 
 import at.cgsit.jeemicro.proxy.CreateInfoProxy;
