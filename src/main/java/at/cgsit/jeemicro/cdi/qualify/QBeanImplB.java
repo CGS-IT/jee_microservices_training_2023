@@ -1,6 +1,6 @@
-package at.cgsit.jeemicro.cdi.beans3;
+package at.cgsit.jeemicro.cdi.qualify;
 
-import at.cgsit.jeemicro.cdi.beans3.qualify.QualifyB;
+import at.cgsit.jeemicro.cdi.qualify.qualifier.QualifyB;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.jboss.logging.Logger;

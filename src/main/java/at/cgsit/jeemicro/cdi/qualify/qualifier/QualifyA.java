@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.cdi.beans3.qualify;
+package at.cgsit.jeemicro.cdi.qualify.qualifier;
 
 
 

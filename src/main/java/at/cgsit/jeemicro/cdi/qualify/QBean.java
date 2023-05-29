@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.cdi.beans3;
+package at.cgsit.jeemicro.cdi.qualify;
 
 public interface QBean {
 
