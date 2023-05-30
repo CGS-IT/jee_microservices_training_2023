@@ -16,7 +16,7 @@ public class RSBeanInterceptedExample {
 
     public String echoReverse2(String input) {
         String reverse = echoReverse(input);
-        return echoReverse(reverse);
+        return reverse;
     }
 
 }
