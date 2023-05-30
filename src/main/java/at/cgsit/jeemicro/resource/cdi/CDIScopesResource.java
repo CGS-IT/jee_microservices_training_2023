@@ -3,6 +3,7 @@ package at.cgsit.jeemicro.resource.cdi;
 import at.cgsit.jeemicro.cdi.logintercept.RSBeanInterceptedExample;
 import at.cgsit.jeemicro.cdi.requestscope.ApplicationScopeBean;
 import at.cgsit.jeemicro.cdi.requestscope.RSBean;
+import io.quarkus.runtime.configuration.SystemOnlySourcesConfigBuilder;
 import jakarta.inject.Inject;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.ws.rs.GET;
@@ -34,6 +35,7 @@ public class CDIScopesResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String applicationScope() {
         Integer value = asBean.getCounter();
+        value = asBean.getCounter();
         return value.toString();
     }
 
