@@ -61,11 +61,6 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-openapi</artifactId>
         </dependency>
-        <!-- add quarkus security via jpa user entity -->
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-security-jpa</artifactId>
-        </dependency>
         <!-- Hibernate ORM specific dependencies -->
         <dependency>
             <groupId>io.quarkus</groupId>
