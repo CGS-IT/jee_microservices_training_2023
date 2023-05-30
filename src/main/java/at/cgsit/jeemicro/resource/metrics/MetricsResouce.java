@@ -30,8 +30,8 @@ public class MetricsResouce {
     @GET
     @Path("/chatMessage")
     @Produces(MediaType.APPLICATION_JSON)
-    @Counted(name = "performedChecks", description = "How many primality checks have been performed.")
-    @Timed(name = "checksTimer", description = "A measure of how long it takes to perform the primality test.", unit = MetricUnits.MILLISECONDS)
+    @Counted(name = "chatMessageFindAllCount", description = "How many primality checks have been performed.")
+    @Timed(name = "chatMessageFindAllTimer", description = "A measure of how long it takes to perform the primality test.", unit = MetricUnits.MILLISECONDS)
     public List<ChatMessageDTO> chatMessageFindAll() {
         LOG.info("info  chatMessage ");
         List<ChatMessageDTO> result = new ArrayList<>();
