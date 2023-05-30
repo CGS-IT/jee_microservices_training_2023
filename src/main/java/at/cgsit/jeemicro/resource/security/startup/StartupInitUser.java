@@ -26,5 +26,4 @@ public class StartupInitUser {
         User.add("admin", "admin", "admin");
         User.add("user", "user", "user");
     }
-
 }

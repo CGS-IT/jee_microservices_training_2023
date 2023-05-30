@@ -10,9 +10,6 @@ public class TestDTO {
     String name;
     String vorname;
 
-    // ocalDateTime datum = LocalDateTime.now();
-
-
     public Long getId() {
         return id;
     }
