@@ -19,7 +19,8 @@ public class TestDtoResource {
     Logger log;
 
     @Operation( summary = "read a Test DTO Object by ID",
-            description = "read a Test DTO Object by ID and return it")
+            description = "read a Test DTO Object by ID and return it",
+            operationId = "readTestDtoById")
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

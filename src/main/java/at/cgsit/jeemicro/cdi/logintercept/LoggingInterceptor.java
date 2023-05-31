@@ -20,9 +20,17 @@ public class LoggingInterceptor {
     @AroundInvoke
     Object logInvocation(InvocationContext context) throws Exception {
 
-        logger.info("object before");
-        Object ret = context.proceed();
-        logger.info("object after");
+        logger.info("object before: " + context.getMethod().getName());
+
+        Object ret = null;
+        try {
+            ret = context.proceed();
+            logger.info("object after");
+
+        } catch (RuntimeException ex){
+            logger.error("object error", ex);
+            throw new RuntimeException(ex);
+        }
         return ret;
     }
 }
