@@ -31,7 +31,11 @@ public class CallProxyResource {
 
         SimpleDTO dto = cIProxy.createNumber2();
 
-        return "callProxy number" + number + " dto: " + dto.getValueA();
+        String infoStr = "callProxy number" + number + " dto: " + dto.toString();
+
+        LOG.infov(infoStr);
+
+        return infoStr;
     }
 
 

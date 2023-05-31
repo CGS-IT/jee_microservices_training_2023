@@ -20,4 +20,12 @@ public class SimpleDTO {
     public void setValueB(String valueB) {
         this.valueB = valueB;
     }
+
+    @Override
+    public String toString() {
+        return "SimpleDTO{" +
+                "valueA='" + valueA + '\'' +
+                ", valueB='" + valueB + '\'' +
+                '}';
+    }
 }
