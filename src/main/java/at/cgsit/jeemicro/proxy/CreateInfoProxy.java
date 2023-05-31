@@ -9,10 +9,15 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/createinfo")
 @Produces(MediaType.TEXT_PLAIN)
-@RegisterRestClient
+@RegisterRestClient()
 public interface CreateInfoProxy {
 
     @GET
     String createNumber();
+
+    @GET
+    @Path("/ext")
+    @Produces(MediaType.APPLICATION_JSON)
+    SimpleDTO createNumber2();
 
 }
