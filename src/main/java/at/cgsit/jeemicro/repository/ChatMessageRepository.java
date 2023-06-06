@@ -8,7 +8,11 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.*;
+import jakarta.transaction.NotSupportedException;
+import jakarta.transaction.SystemException;
 import jakarta.transaction.Transactional;
+import jakarta.transaction.UserTransaction;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,6 +21,9 @@ public class ChatMessageRepository {
 
     @Inject
     EntityManager em;
+
+    @Inject
+    UserTransaction utx;
 
     @Transactional
     public void reAttach(ChatMessageEntity entity) {
@@ -125,6 +132,19 @@ public class ChatMessageRepository {
         int i = query.executeUpdate();
         return i;
     }
+
+    public void insertChatMessageManualTX(ChatMessageEntity newObject) throws SystemException, NotSupportedException {
+        utx.begin();
+        try {
+            em.persist(newObject);
+            utx.commit();
+        } catch (Exception e) {
+            utx.rollback();
+            throw new RuntimeException("tx erorr ",e);
+        }
+    }
+
+
 
 
     @Transactional(Transactional.TxType.REQUIRED)
