@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @XmlRootElement
@@ -14,13 +15,13 @@ import java.util.Date;
 @JsonPropertyOrder({ "id","name", "vorname" })
 public class TestDTO {
 
-    @JsonProperty(value = "id", required = true, access = JsonProperty.Access.READ_ONLY, defaultValue = "-1")
+    @JsonProperty(value = "id", required = true, access = JsonProperty.Access.READ_WRITE, defaultValue = "-1")
     private Long id;
 
     @JsonProperty(value = "name", required = true, access = JsonProperty.Access.READ_WRITE, defaultValue = "nameDefault")
     String name;
 
-    @JsonProperty(value = "name", required = false, access = JsonProperty.Access.READ_WRITE, defaultValue = "vornameDefault")
+    @JsonProperty(value = "vorname", required = false, access = JsonProperty.Access.READ_WRITE, defaultValue = "vornameDefault")
     String vorname;
 
     @JsonProperty(value = "isOk", required = false, access = JsonProperty.Access.READ_WRITE, defaultValue = "true")
@@ -29,7 +30,7 @@ public class TestDTO {
     @JsonProperty(value = "enumTest", required = false, access = JsonProperty.Access.READ_WRITE, defaultValue = "ENUM1")
     EnumTest enumTest;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public Date eventDate;
 
     public Long getId() {

@@ -2,6 +2,7 @@ package at.cgsit.jeemicro.resource.useothersrv;
 
 
 import at.cgsit.jeemicro.proxy.CreateInfoProxy;
+import at.cgsit.jeemicro.proxy.SimpleDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -24,9 +25,17 @@ public class CallProxyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String callProxy() {
+
         String number = cIProxy.createNumber();
         LOG.infov("callProxy number {0}", number);
-        return "callProxy number" + number;
+
+        SimpleDTO dto = cIProxy.createNumber2();
+
+        String infoStr = "callProxy number" + number + " dto: " + dto.toString();
+
+        LOG.infov(infoStr);
+
+        return infoStr;
     }
 
 
