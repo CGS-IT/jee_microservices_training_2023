@@ -1,8 +1,13 @@
 # KURS JEE Microservice Development with Quarkus
 ## kurs_jeemicro
+This project is used as an example project for jee microservice development with quarkus 
+and is part of the course material for the course "Microservice Development with Quarkus" 
+see ./license.txt for license information.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+
+This work © 2023 by CGS-IT Solutions GmbH is licensed under Attribution-NonCommercial 4.0 International
 
 ## Running the application in dev mode
 
