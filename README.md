@@ -1,8 +1,7 @@
-# KURS ENDE TAG 3 - JEE MICRO
-# kurs_jeemicro
+# KURS JEE Microservice Development with Quarkus
+## kurs_jeemicro
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 ## Running the application in dev mode
