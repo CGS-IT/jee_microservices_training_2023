@@ -5,6 +5,7 @@
 
 package at.cgsit.jeemicro.bean_validation;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
@@ -35,6 +36,10 @@ public class BVTestObject {
     @PositiveOrZero
     @Digits(integer = 5, fraction = 2) // 5 digits in total, 2 after the decimal point
     private BigDecimal amount;
+
+    @NotNull @Valid
+    private BVTestObject2 referenceObject;
+
 
     @AssertTrue(message = "this chat message is not allowed. because of user name")
     public boolean isChatMessageAllowed() {
@@ -90,6 +95,14 @@ public class BVTestObject {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public BVTestObject2 getReferenceObject() {
+        return referenceObject;
+    }
+
+    public void setReferenceObject(BVTestObject2 referenceObject) {
+        this.referenceObject = referenceObject;
     }
 
     @Override
