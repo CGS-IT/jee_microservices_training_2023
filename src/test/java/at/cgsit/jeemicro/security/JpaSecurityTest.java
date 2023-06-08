@@ -36,7 +36,6 @@ public class JpaSecurityTest {
                 .get("/api/admin")
                 .then()
                 .statusCode(HttpStatus.SC_OK);
-
     }
 
     @Test

@@ -1,4 +1,8 @@
-package at.cgsit.jeemicro.resource.asintro;
+/*
+ * This work © 2023 by CGS-IT Solutions GmbH is licensed under Attribution-NonCommercial 4.0 International
+ */
+
+package at.cgsit.jeemicro.resource.configparam;
 
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -29,6 +33,4 @@ public class DemoMicroResource {
         }
         return "";
     }
-
-
 }

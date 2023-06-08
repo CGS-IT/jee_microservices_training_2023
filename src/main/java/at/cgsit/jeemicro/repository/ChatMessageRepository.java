@@ -67,10 +67,13 @@ public class ChatMessageRepository {
     }
 
 
+    /**
+     * suche alle chat messages and order by date descending
+     * @param likeStatement
+     * @return
+     */
     @Transactional
     public List<ChatMessageEntity> findChatMessagesWithLikeNameAndOrdedByDate(String likeStatement) {
-
-        // suche alle chat messages and order by date descending
 
         Query query = em.createQuery(
                 "SELECT e from ChatMessageEntity e " +
@@ -170,10 +173,7 @@ public class ChatMessageRepository {
     @Transactional
     public List<ChatMessageEntity>
     findChatMessagesWithLikeNameAndOrdedByDateWithQueryBuilder(String likeStatement ) {
-
         // "SELECT e from ChatMessageEntity e WHERE e.chatRoom like :chatMessageLike ORDER by e.creationTime DESC"
-
-
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<ChatMessageEntity> criteriaQuery = cb.createQuery(ChatMessageEntity.class);
         Root<ChatMessageEntity> from = criteriaQuery.from(ChatMessageEntity.class);
