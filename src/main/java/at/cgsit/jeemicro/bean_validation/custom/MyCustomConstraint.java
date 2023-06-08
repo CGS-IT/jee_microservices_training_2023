@@ -26,5 +26,5 @@ public @interface MyCustomConstraint {
     Class<? extends Payload>[] payload() default {};
 
     //optional
-    String[] validStrings();
+    String[] correctStrings();
 }

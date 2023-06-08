@@ -8,7 +8,7 @@ import at.cgsit.jeemicro.bean_validation.custom.MyCustomConstraint;
 
 public class BVCustomUse {
 
-    @MyCustomConstraint(validStrings = {"test", "test2"})
+    @MyCustomConstraint(correctStrings = {"test", "test2"})
     String name;
 
 

@@ -12,26 +12,26 @@ public class SimpleCustomValidator implements ConstraintValidator<MyCustomConstr
 
     @Override
     public void initialize(MyCustomConstraint constraintAnnotation) {
-        stringsToUse = constraintAnnotation.validStrings();
+        stringsToUse = constraintAnnotation.correctStrings();
     }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return validate(value); // shown in next slide
+        return doValidate(value); // shown in next slide
     }
 
-    private boolean validate(String dateString) {
-        boolean valid = false;
+    private boolean doValidate(String dateString) {
+        boolean checkValid = false;
         if (dateString.length() == 0){
             return true;
         }
         for (String stringToUse : stringsToUse) {
             if (dateString.contains(stringToUse)) {
-                valid = true;
+                checkValid = true;
                 break;
             }
         }
-        return valid;
+        return checkValid;
     }
 
 }

@@ -4,14 +4,10 @@
 
 package at.cgsit.jeemicro.bean_validation;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.AssertTrue;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Past;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 
 public class BVTestObject2 {
 
