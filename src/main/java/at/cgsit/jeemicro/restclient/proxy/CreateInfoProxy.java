@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.proxy;
+package at.cgsit.jeemicro.restclient.proxy;
 
 
 import jakarta.ws.rs.GET;
@@ -11,7 +11,6 @@ import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
-import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.time.temporal.ChronoUnit;
