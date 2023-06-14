@@ -1,8 +1,8 @@
 package at.cgsit.jeemicro.resource.useothersrv;
 
 
-import at.cgsit.jeemicro.proxy.CreateInfoProxy;
-import at.cgsit.jeemicro.proxy.SimpleDTO;
+import at.cgsit.jeemicro.restclient.proxy.CreateInfoProxy;
+import at.cgsit.jeemicro.restclient.proxy.SimpleDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

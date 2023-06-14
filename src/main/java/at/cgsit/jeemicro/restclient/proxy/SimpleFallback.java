@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.proxy;
+package at.cgsit.jeemicro.restclient.proxy;
 
 import org.eclipse.microprofile.faulttolerance.ExecutionContext;
 import org.eclipse.microprofile.faulttolerance.FallbackHandler;

@@ -124,8 +124,9 @@ public class ChatMessageRepository {
 
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void insertChatMessage(ChatMessageEntity newObject) {
+    public ChatMessageEntity insertChatMessage(ChatMessageEntity newObject) {
         em.persist(newObject);
+        return newObject;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

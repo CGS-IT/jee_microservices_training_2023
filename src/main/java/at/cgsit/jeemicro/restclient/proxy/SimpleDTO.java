@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.proxy;
+package at.cgsit.jeemicro.restclient.proxy;
 
 public class SimpleDTO {
 
