@@ -2,7 +2,7 @@
  * This work © 2023 by CGS-IT Solutions GmbH is licensed under Attribution-NonCommercial 4.0 International
  */
 
-package at.cgsit.jeemicro.resource.configparam;
+package at.cgsit.jeemicro.resource.configproperty;
 
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
