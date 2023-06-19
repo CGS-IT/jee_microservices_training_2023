@@ -1,3 +1,8 @@
+[![Build Status](https://github.com/sonalake/utah-parser/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/sonalake/utah-parser/actions/workflows/CI.yml) 
+-- [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.sonalake/utah-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sonalake/utah-parser)
+-- [![codecov](https://codecov.io/gh/sonalake/utah-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/sonalake/utah-parser)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+
 # KURS JEE Microservice Development with Quarkus
 ## kurs_jeemicro
 This project is used as an example project for jee microservice development with quarkus 
