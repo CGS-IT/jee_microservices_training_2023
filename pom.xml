@@ -11,6 +11,7 @@
     <modules>
         <module>jee_microservice_start</module>
         <module>jee_microservice_restapi</module>
+        <module>jee_microservice_service</module>
         <module>jee_microservice_cdi</module>
         <module>jee_microservice_chat</module>
         <module>jee_microservice_amqp</module>
