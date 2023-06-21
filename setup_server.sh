@@ -8,6 +8,6 @@ export PGPASSWORD=postgres
 
 # DBURL: "postgres://postgres:postgres@localhost:5432/postgres"
 
-psql -t postgres://postgres:postgres@localhost:5432/postgres -f ./jee_microservice_start/src/main/database_scripts/create_db.sql
+psql -t postgres://postgres:postgres@localhost:5432/postgres -f ./jee_microservice_chat/src/main/database_scripts/create_db.sql
 
 

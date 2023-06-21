@@ -8,6 +8,11 @@ import jakarta.ws.rs.core.MediaType;
 
 import org.jboss.logging.Logger;
 
+/**
+    * ExampleResource
+    * <p>
+    * Introductory resource for RESTful API, and simple quarkus example.
+    */
 @Path("/hello")
 public class ExampleResource {
 
@@ -19,6 +24,7 @@ public class ExampleResource {
     public String hello() {
         LOG.infov("hello: {0}", 1);
         LOG.debug("debug out ");
+
         return "Hello from RESTEasy ddf Reactive";
     }
 

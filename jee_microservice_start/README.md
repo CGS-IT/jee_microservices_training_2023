@@ -1,6 +1,11 @@
-# KURS JEE Microservice Development with Quarkus
-## kurs_jeemicro
-This project is used as an example project for jee microservice development with quarkus 
+
+# Workshop : JEE Microservice Development with Quarkus
+## jee_microservice_start
+This start example is a simple base project for the course "Microservice Development with Quarkus".
+
+It is used as a starting point for the exercises in the course, and shows the basic structure of a quarkus project.
+
+This project is used as an example project for jee microservice development with quarkus
 and is part of the course material for the course "Microservice Development with Quarkus" 
 see ./license.txt for license information.
 

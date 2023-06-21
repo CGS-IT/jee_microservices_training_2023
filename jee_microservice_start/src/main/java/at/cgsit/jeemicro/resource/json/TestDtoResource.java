@@ -5,30 +5,27 @@ import at.cgsit.jeemicro.resource.json.dto.TestDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.eclipse.microprofile.openapi.annotations.Operation;
-import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.jboss.logging.Logger;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * TestDtoResource
+ * <p>
+ *     Test resource for json dto and restfull api. <br/>
+ *     CRUD operations for json dto with restfull api http methods.
+ */
 @Path("/testdto")
 public class TestDtoResource {
 
     @Inject
     Logger log;
 
-    @Operation( summary = "read a Test DTO Object by ID",
-            description = "read a Test DTO Object by ID and return it",
-            operationId = "readTestDtoById")
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public TestDTO readObjectById(
-            @Parameter(name = "input", description = "The TestDTO Input object to store", required = true, allowEmptyValue = false)
-            @PathParam("id") String id
-    ){
+    public TestDTO readObjectById(@PathParam("id") String id){
         log.infov("input {} , objectOutput {0}",  id, "");
 
         TestDTO dto = new TestDTO();
