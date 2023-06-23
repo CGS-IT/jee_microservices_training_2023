@@ -1,6 +1,6 @@
 package at.cgsit.jeemicro.businessservice;
 
-import at.cgsit.jeemicro.cdi.logintercept.Logged;
+
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
 import at.cgsit.jeemicro.repository.ChatMessageRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -30,8 +30,10 @@ public class ChatMessageService {
     @Inject
     Validator validator;
 
-
-    @Logged
+    /**
+     * this method returns all chat messages
+     * @return
+     */
     public ChatMessageEntity create(ChatMessageEntity createCM ) {
 
         // 3 Bean Validierungs Varianten sind nun verfügbar:

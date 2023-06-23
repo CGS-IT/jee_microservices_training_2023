@@ -8,6 +8,9 @@ import jakarta.ws.rs.core.MediaType;
 
 import org.jboss.logging.Logger;
 
+/**
+ * initial endpoint example
+ */
 @Path("/hello")
 public class ExampleResource {
 

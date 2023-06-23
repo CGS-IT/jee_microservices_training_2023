@@ -13,7 +13,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
  * use jakarta ws ClientBuilder to create a client and call a rest service
  * <br/>
  * shows how to use the jakarta.json api to access the json result
- */
+ * */
 @RequestScoped
 public class CreateInfoWithClientBuilder {
 

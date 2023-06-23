@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.resource;
+package at.cgsit.jeemicro.resource.json;
 
 import at.cgsit.jeemicro.ExampleResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
@@ -8,24 +8,20 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-
-//
+import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 @TestHTTPEndpoint(ExampleResource.class)
-public class ExampleResourceTest {
+class TestDtoResourceTest {
 
     @Test
     public void testHelloEndpoint() {
         given()
                 .when()
-                //.get("/hello") TestHTTPEndpoint will provide the path
                 .get()
                 .then()
                 .statusCode(200)
                 .body(is(notNullValue()));
-                //.body(is("Hello RESTEasy"));
     }
-
-
+    
 }

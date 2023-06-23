@@ -2,7 +2,6 @@ package at.cgsit.jeemicro.repository;
 
 
 import at.cgsit.jeemicro.entity.ChatMessageEntity;
-
 import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

@@ -10,6 +10,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * Test DTO Object for JSON and XML output
+ */
 @XmlRootElement
 @JsonRootName(value = "TestDTO")
 @JsonPropertyOrder({ "id","name", "vorname" })
@@ -92,5 +95,5 @@ public class TestDTO {
                 ", eventDate=" + eventDate +
                 '}';
     }
-}
 
+}

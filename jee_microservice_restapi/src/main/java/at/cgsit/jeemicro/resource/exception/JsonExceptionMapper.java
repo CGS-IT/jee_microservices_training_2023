@@ -1,5 +1,6 @@
 package at.cgsit.jeemicro.resource.exception;
 
+import at.cgsit.jeemicro.resource.configproperty.ConfigurationPropertyResource;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
@@ -9,9 +10,7 @@ import org.jboss.logging.Logger;
 
 @Provider
 public class JsonExceptionMapper implements ExceptionMapper<InvalidFormatException> {
-
-    @Inject
-    Logger LOG;
+    private static final Logger LOG = Logger.getLogger(JsonExceptionMapper.class);
 
     @Override
     public Response toResponse(InvalidFormatException ex) {

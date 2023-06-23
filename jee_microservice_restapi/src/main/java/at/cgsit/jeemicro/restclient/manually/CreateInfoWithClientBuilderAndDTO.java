@@ -11,6 +11,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 /**
  * use jakarta ws ClientBuilder to create a client and call a rest service
  * <br/>
+ *
  * shows how to deserialize the json result to a dto
  */
 @RequestScoped

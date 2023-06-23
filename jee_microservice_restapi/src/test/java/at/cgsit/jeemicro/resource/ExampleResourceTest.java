@@ -1,6 +1,5 @@
 package at.cgsit.jeemicro.resource;
 
-import at.cgsit.jeemicro.ExampleResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

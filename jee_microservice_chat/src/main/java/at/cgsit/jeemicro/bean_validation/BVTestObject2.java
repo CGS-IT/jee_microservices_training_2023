@@ -9,6 +9,9 @@ import jakarta.validation.constraints.Past;
 
 import java.time.LocalDateTime;
 
+/**
+ * @Author CGS-IT Solutions @2022
+ */
 public class BVTestObject2 {
 
     @Past

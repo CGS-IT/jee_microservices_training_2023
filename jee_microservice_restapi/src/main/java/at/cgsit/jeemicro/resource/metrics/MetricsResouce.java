@@ -1,6 +1,5 @@
 package at.cgsit.jeemicro.resource.metrics;
 
-
 import at.cgsit.jeemicro.dto.ChatMessageDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;

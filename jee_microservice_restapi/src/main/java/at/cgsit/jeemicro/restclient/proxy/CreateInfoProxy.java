@@ -15,6 +15,9 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.time.temporal.ChronoUnit;
 
+/**
+ * CreateInfoProxy
+ */
 @Path("/createinfo")
 @Produces(MediaType.TEXT_PLAIN)
 @RegisterRestClient()

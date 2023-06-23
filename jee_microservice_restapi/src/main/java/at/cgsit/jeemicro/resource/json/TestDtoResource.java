@@ -1,6 +1,7 @@
 package at.cgsit.jeemicro.resource.json;
 
 
+import at.cgsit.jeemicro.resource.configproperty.ConfigurationPropertyResource;
 import at.cgsit.jeemicro.resource.json.dto.TestDTO;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -13,11 +14,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Test DTO Resource is an example for a REST Resource with JSON DTOs result
+ * and it provides Http methods for CRUD operations in a restful way.
+ */
 @Path("/testdto")
 public class TestDtoResource {
-
-    @Inject
-    Logger log;
+    private static final Logger LOG = Logger.getLogger(TestDtoResource.class);
 
     @Operation( summary = "read a Test DTO Object by ID",
             description = "read a Test DTO Object by ID and return it",
@@ -29,7 +32,7 @@ public class TestDtoResource {
             @Parameter(name = "input", description = "The TestDTO Input object to store", required = true, allowEmptyValue = false)
             @PathParam("id") String id
     ){
-        log.infov("input {} , objectOutput {0}",  id, "");
+        LOG.infov("input {} , objectOutput {0}",  id, "");
 
         TestDTO dto = new TestDTO();
         dto.setName("name");
@@ -42,7 +45,7 @@ public class TestDtoResource {
     @Path("/")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public List<TestDTO> listAllObects(){
-        log.infov("objectOutput {0}", "");
+        LOG.infov("objectOutput {0}", "");
 
         TestDTO dto = new TestDTO();
         dto.setId( 1L);
@@ -69,7 +72,7 @@ public class TestDtoResource {
     public TestDTO updateTestMessage(
             @PathParam("id") String id,
             TestDTO input) {
-        log.infov("updateTestMessage got object with {id} :object {0}", id, input.toString());
+        LOG.infov("updateTestMessage got object with {id} :object {0}", id, input.toString());
 
         return input;
     }
@@ -79,7 +82,7 @@ public class TestDtoResource {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
     public TestDTO createTestMessagePost(TestDTO input) {
-        log.infov("createTestMessagePost : {0}", input.toString());
+        LOG.infov("createTestMessagePost : {0}", input.toString());
 
         return input;
     }
@@ -88,7 +91,7 @@ public class TestDtoResource {
     @Path("/{id}")
     @Produces(MediaType.TEXT_PLAIN)
     public String deleteTestDto(@PathParam("id") String id) {
-        log.infov("got object with {id}", id);
+        LOG.infov("got object with {id}", id);
 
         return "object deleted";
     }

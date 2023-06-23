@@ -1,5 +1,7 @@
 # Workshop : JEE Microservice Development with Quarkus
-## kurs_jeemicro_service
+## Workshop jee microservice service
+Implements a REST service for the workshop jee microservice 
+which will be used to call via clients from the restapi microserivce.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

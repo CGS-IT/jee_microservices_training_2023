@@ -1,4 +1,4 @@
-package at.cgsit.jeemicro.resource;
+package at.cgsit.jeemicro.resource.metrics;
 
 import at.cgsit.jeemicro.ExampleResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
@@ -8,23 +8,30 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-
-//
+import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
-@TestHTTPEndpoint(ExampleResource.class)
-public class ExampleResourceTest {
+@TestHTTPEndpoint(MetricsResouce.class)
+class MetricsResouceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testMetricsCallByList() {
         given()
                 .when()
-                //.get("/hello") TestHTTPEndpoint will provide the path
-                .get()
+                .get("/chatMessage")
                 .then()
                 .statusCode(200)
                 .body(is(notNullValue()));
-                //.body(is("Hello RESTEasy"));
+    }
+
+    @Test
+    public void testMetricsCallByID() {
+        given()
+                .when()
+                .get("/chatMessage/1")
+                .then()
+                .statusCode(200)
+                .body(is(notNullValue()));
     }
 
 

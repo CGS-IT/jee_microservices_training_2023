@@ -29,8 +29,9 @@ class BVTestObjectTest {
 
     @Test
     void isChatMessageAllowed() {
-        Set<ConstraintViolation<BVTestObject>> validate = validator.validate(createTestObject());
-        validate.forEach(v -> System.out.println("failed: " + v.getPropertyPath() + " message: " + v.getMessage()));
+        BVTestObject testObject = createTestObject();
+        Set<ConstraintViolation<BVTestObject>> validate = validator.validate(testObject);
+                validate.forEach(v -> System.out.println("failed: " + v.getPropertyPath() + " message: " + v.getMessage()));
         assertEquals(2, validate.size());
     }
 

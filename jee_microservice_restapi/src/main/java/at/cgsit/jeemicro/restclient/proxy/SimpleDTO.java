@@ -1,5 +1,8 @@
 package at.cgsit.jeemicro.restclient.proxy;
 
+/**
+ * SimpleDTO
+ */
 public class SimpleDTO {
 
     private String valueA;
