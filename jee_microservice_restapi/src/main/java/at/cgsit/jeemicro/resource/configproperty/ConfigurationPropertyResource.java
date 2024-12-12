@@ -37,4 +37,22 @@ public class ConfigurationPropertyResource {
         }
         return "";
     }
+
+    @GET
+    @Path("/fromProvider")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String showMessageFromConfigurationProperty() {
+        LOG.infov(  "INFO  :: showMessage {0}", message);
+
+        String databaseName = ConfigProvider.getConfig().getValue("greeting.message", String.class);
+        Optional<String> maybeDatabaseName = ConfigProvider.getConfig().getOptionalValue("greeting.message", String.class);
+
+        try {
+            return "Hello: config read via Config Provider " + maybeDatabaseName;
+        } catch (RuntimeException ex ) {
+            LOG.error("fehler beim message lesen ", ex);
+        }
+        return "";
+    }
+    
 }
