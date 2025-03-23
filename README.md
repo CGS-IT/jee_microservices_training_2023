@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/CGS-IT/jee_microservices_training_2023/branch/main/graph/badge.svg?token=PBF8CW2H9X)](https://codecov.io/gh/CGS-IT/jee_microservices_training_2023)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
-# KURS JEE Microservice Development with Quarkus
+# Workshop : JEE Microservice Development with Quarkus
 ## kurs_jeemicro
 This project is used as an example project for jee microservice development with quarkus 
 and is part of the course material for the course "Microservice Development with Quarkus" 
